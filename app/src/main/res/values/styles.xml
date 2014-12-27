@@ -1,8 +1,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="AppTheme.Base">
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- Fix for older devices in order to avoid crash at launch -->
+    <style name="AppTheme.Base" parent="Theme.AppCompat">
+
+    </style>
 </resources>

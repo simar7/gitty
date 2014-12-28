@@ -27,8 +27,9 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 
-import io.engx.gitty.fragments.SlidingTabFragment;
 import io.engx.gitty.R;
+import io.engx.gitty.fragments.SlidingTabFragment;
+
 
 public class SlidingActivity extends ActionBarActivity {
 

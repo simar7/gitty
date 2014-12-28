@@ -6,7 +6,13 @@
     </style>
 
     <!-- Fix for older devices in order to avoid crash at launch -->
-    <style name="AppTheme.Base" parent="Theme.AppCompat">
-
-    </style>
+    <style name="AppTheme.Base" parent="Theme.AppCompat.NoActionBar">
+        <!-- Main theme colors -->
+        <!--   your app branding color for the app bar -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">@color/accent</item>
+     </style>
 </resources>

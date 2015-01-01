@@ -23,8 +23,7 @@ public class SampleActivity extends ActionBarActivity {
 
     private ListView mDrawerList;
     ViewPager pager;
-    private String titles[] = new String[]{"Sample Tab 1", "Sample Tab 2", "Sample Tab 3", "Sample Tab 4"
-            , "Sample Tab 5", "Sample Tab 6", "Sample Tab 7", "Sample Tab 8"};
+    private String titles[] = new String[]{"Overview", "Activity", "Issues"};
     private Toolbar toolbar;
 
     SlidingTabLayout slidingTabLayout;
@@ -43,7 +42,9 @@ public class SampleActivity extends ActionBarActivity {
         }
         pager = (ViewPager) findViewById(R.id.viewpager);
         slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
+        slidingTabLayout.setDistributeEvenly(Boolean.TRUE);
         pager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), titles));
+
 
         slidingTabLayout.setViewPager(pager);
         slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {

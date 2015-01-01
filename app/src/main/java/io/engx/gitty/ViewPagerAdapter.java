@@ -6,13 +6,18 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
-    final int PAGE_COUNT =8;
+    final int PAGE_COUNT = 3;
     private String titles[] ;
 
     public ViewPagerAdapter(FragmentManager fm, String[] titles2) {
         super(fm);
         titles=titles2;
     }
+
+    /*
+        simar: Add more case statements to add more pages.
+        also don't forget to update the page count.
+     */
 
     @Override
     public Fragment getItem(int position) {
@@ -24,17 +29,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 return SampleFragment.newInstance(position);
             case 2:
                 return SampleFragment.newInstance(position);
-            case 3:
-                return SampleFragment.newInstance(position);
-            case 4:
-                return SampleFragment.newInstance(position);
-            case 5:
-                return SampleFragment.newInstance(position);
-            case 6:
-                return SampleFragment.newInstance(position);
-            case 7:
-                return SampleFragment.newInstance(position);
-
         }
         return null;
     }

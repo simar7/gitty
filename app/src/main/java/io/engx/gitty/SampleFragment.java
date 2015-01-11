@@ -2,14 +2,19 @@ package io.engx.gitty;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SampleFragment extends Fragment {
 
     private RecyclerView recyclerView;
+    private ActivityFeedAdapter adapter;
 
     private static final String ARG_POSITION = "position";
 
@@ -31,6 +36,10 @@ public class SampleFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.page, container, false);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.ActivityFeedRecyclerView);
+        adapter = new ActivityFeedAdapter(getActivity(), getData());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
 
         //ProgressBarCircular progressBarCircular = (ProgressBarCircular) rootView.findViewById(R.id.progress);
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fabButton);
@@ -58,5 +67,18 @@ public class SampleFragment extends Fragment {
         }
 
         return rootView;
+    }
+
+    public static List<ActivityFeed> getData() {
+        List<ActivityFeed> data = new ArrayList<>();
+        int[] icons = {R.drawable.ic_launcher, R.drawable.ic_launcher};
+        String[] titles = {"Sample Row 1", "Sample Row 2"};
+        for (int i = 0; i < icons.length && i < titles.length; i++) {
+            ActivityFeed current = new ActivityFeed();
+            current.list_item_icon = icons[i % icons.length];
+            current.list_item_text = titles[i % titles.length];
+            data.add(current);
+        }
+        return data;
     }
 }

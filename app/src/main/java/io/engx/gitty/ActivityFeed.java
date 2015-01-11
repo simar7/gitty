@@ -5,6 +5,7 @@ package io.engx.gitty;
  */
 public class ActivityFeed {
 
-    String title;
+    int list_item_icon;
+    String list_item_text;
 
 }

@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+import java.util.Collections;
+
 /**
  * Created by simar on 2015-01-11.
  */
@@ -15,8 +18,12 @@ public class ActivityFeedAdapter extends RecyclerView.Adapter<ActivityFeedAdapte
 
     private LayoutInflater inflater;
 
-    public ActivityFeed(Context context) {
+    // TODO: Replace by actual GitHub activity data.
+    List<ActivityFeed> sample_data = Collections.emptyList();
+
+    public ActivityFeedAdapter(Context context, List<ActivityFeed> sample_data) {
         inflater = LayoutInflater.from(context);
+        this.sample_data = sample_data;
     }
 
     @Override
@@ -27,7 +34,12 @@ public class ActivityFeedAdapter extends RecyclerView.Adapter<ActivityFeedAdapte
     }
 
     @Override
-    public void onBindViewHolder(ActivityFeedAdapter.ActivityViewHolder viewHolder, int i) {
+    public void onBindViewHolder(ActivityFeedAdapter.ActivityViewHolder viewHolder, int position) {
+
+        ActivityFeed currentRow = sample_data.get(position);
+
+        viewHolder.activity_list_text.setText(currentRow.list_item_text);
+        viewHolder.activity_list_icon.setImageResource(currentRow.list_item_icon);
 
     }
 

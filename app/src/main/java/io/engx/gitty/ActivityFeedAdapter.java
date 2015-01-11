@@ -17,11 +17,13 @@ import java.util.Collections;
 public class ActivityFeedAdapter extends RecyclerView.Adapter<ActivityFeedAdapter.ActivityViewHolder> {
 
     private LayoutInflater inflater;
+    private Context context;
 
     // TODO: Replace by actual GitHub activity data.
     List<ActivityFeed> sample_data = Collections.emptyList();
 
     public ActivityFeedAdapter(Context context, List<ActivityFeed> sample_data) {
+        this.context = context;
         inflater = LayoutInflater.from(context);
         this.sample_data = sample_data;
     }
@@ -45,19 +47,25 @@ public class ActivityFeedAdapter extends RecyclerView.Adapter<ActivityFeedAdapte
 
     @Override
     public int getItemCount() {
-        return 0;
+        return sample_data.size();
     }
 
     // Create once, recycle many times.
-    class ActivityViewHolder extends RecyclerView.ViewHolder {
+    class ActivityViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView activity_list_text;
         ImageView activity_list_icon;
 
         public ActivityViewHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             activity_list_text = (TextView) itemView.findViewById(R.id.list_item_text);
             activity_list_icon = (ImageView) itemView.findViewById(R.id.list_item_icon);
+        }
+
+        @Override
+        public void onClick(View v) {
+
         }
     }
 }

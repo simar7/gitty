@@ -2,17 +2,21 @@ package io.engx.gitty;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 public class SampleFragment extends Fragment {
 
+    private RecyclerView recyclerView;
+
     private static final String ARG_POSITION = "position";
 
     private int position;
 
     public static SampleFragment newInstance(int position) {
+
         SampleFragment f = new SampleFragment();
         Bundle b = new Bundle();
         b.putInt(ARG_POSITION, position);
@@ -23,29 +27,32 @@ public class SampleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         position = getArguments().getInt(ARG_POSITION);
+
         View rootView = inflater.inflate(R.layout.page, container, false);
 
-        ProgressBarCircular progressBarCircular = (ProgressBarCircular) rootView.findViewById(R.id.progress);
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.ActivityFeedRecyclerView);
+
+        //ProgressBarCircular progressBarCircular = (ProgressBarCircular) rootView.findViewById(R.id.progress);
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fabButton);
         fab.setDrawableIcon(getResources().getDrawable(R.drawable.plus));
         switch (position) {
             case 0:
                 fab.setBackgroundColor(getResources().getColor(R.color.material_deep_teal_500));
-                progressBarCircular.setBackgroundColor(getResources().getColor(R.color.material_deep_teal_500));
+                //progressBarCircular.setBackgroundColor(getResources().getColor(R.color.material_deep_teal_500));
                 break;
             case 1:
                 fab.setBackgroundColor(getResources().getColor(R.color.red));
-                progressBarCircular.setBackgroundColor(getResources().getColor(R.color.red));
+                //progressBarCircular.setBackgroundColor(getResources().getColor(R.color.red));
 
                 break;
             case 2:
-                progressBarCircular.setBackgroundColor(getResources().getColor(R.color.blue));
+                //progressBarCircular.setBackgroundColor(getResources().getColor(R.color.blue));
                 fab.setBackgroundColor(getResources().getColor(R.color.blue));
 
                 break;
             case 3:
                 fab.setBackgroundColor(getResources().getColor(R.color.material_blue_grey_800));
-                progressBarCircular.setBackgroundColor(getResources().getColor(R.color.material_blue_grey_800));
+                //progressBarCircular.setBackgroundColor(getResources().getColor(R.color.material_blue_grey_800));
 
                 break;
         }

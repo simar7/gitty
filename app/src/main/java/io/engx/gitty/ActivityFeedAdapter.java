@@ -14,53 +14,49 @@ import java.util.Collections;
 /**
  * Created by simar on 2015-01-11.
  */
-public class ActivityFeedAdapter extends RecyclerView.Adapter<ActivityFeedAdapter.ActivityViewHolder> {
+public class ActivityFeedAdapter extends RecyclerView.Adapter<ActivityFeedAdapter.MyActivityViewHolder> {
 
     private LayoutInflater inflater;
     private Context context;
-
     // TODO: Replace by actual GitHub activity data.
-    List<ActivityFeed> sample_data = Collections.emptyList();
+    List<ActivityFeedData> data_list = Collections.emptyList();
 
-    public ActivityFeedAdapter(Context context, List<ActivityFeed> sample_data) {
+    public ActivityFeedAdapter(Context context, List<ActivityFeedData> data_list) {
         this.context = context;
         inflater = LayoutInflater.from(context);
-        this.sample_data = sample_data;
+        this.data_list = data_list;
     }
 
     @Override
-    public ActivityFeedAdapter.ActivityViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = inflater.inflate(R.layout.activity_feed_layout, viewGroup, false);
-        ActivityViewHolder holder = new ActivityViewHolder(view);
+    public ActivityFeedAdapter.MyActivityViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View view = inflater.inflate(R.layout.activity_feed_row, viewGroup, false);
+        MyActivityViewHolder holder = new MyActivityViewHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(ActivityFeedAdapter.ActivityViewHolder viewHolder, int position) {
-
-        ActivityFeed currentRow = sample_data.get(position);
-
-        viewHolder.activity_list_text.setText(currentRow.list_item_text);
-        viewHolder.activity_list_icon.setImageResource(currentRow.list_item_icon);
-
+    public void onBindViewHolder(ActivityFeedAdapter.MyActivityViewHolder holder, int position) {
+        ActivityFeedData currentRow = data_list.get(position);
+        holder.activity_list_text.setText(currentRow.list_item_text);
+        holder.activity_list_icon.setImageResource(currentRow.list_item_icon);
     }
 
     @Override
     public int getItemCount() {
-        return sample_data.size();
+        return data_list.size();
     }
 
     // Create once, recycle many times.
-    class ActivityViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class MyActivityViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView activity_list_text;
         ImageView activity_list_icon;
 
-        public ActivityViewHolder(View itemView) {
+        public MyActivityViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            activity_list_text = (TextView) itemView.findViewById(R.id.list_item_text);
-            activity_list_icon = (ImageView) itemView.findViewById(R.id.list_item_icon);
+            activity_list_text = (TextView) itemView.findViewById(R.id.listText);
+            activity_list_icon = (ImageView) itemView.findViewById(R.id.listIcon);
         }
 
         @Override

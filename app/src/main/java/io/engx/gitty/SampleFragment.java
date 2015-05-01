@@ -69,12 +69,12 @@ public class SampleFragment extends Fragment {
         return rootView;
     }
 
-    public static List<ActivityFeed> getData() {
-        List<ActivityFeed> data = new ArrayList<>();
+    public static List<ActivityFeedData> getData() {
+        List<ActivityFeedData> data = new ArrayList<>();
         int[] icons = {R.drawable.ic_launcher, R.drawable.ic_launcher};
         String[] titles = {"Sample Row 1", "Sample Row 2"};
         for (int i = 0; i < icons.length && i < titles.length; i++) {
-            ActivityFeed current = new ActivityFeed();
+            ActivityFeedData current = new ActivityFeedData();
             current.list_item_icon = icons[i % icons.length];
             current.list_item_text = titles[i % titles.length];
             data.add(current);

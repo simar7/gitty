@@ -30,7 +30,7 @@ public class ActivityFeedAdapter extends RecyclerView.Adapter<ActivityFeedAdapte
 
     @Override
     public ActivityFeedAdapter.ActivityViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = inflater.inflate(R.layout.activity_feed_row, viewGroup, false);
+        View view = inflater.inflate(R.layout.activity_feed_layout, viewGroup, false);
         ActivityViewHolder holder = new ActivityViewHolder(view);
         return holder;
     }
